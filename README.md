@@ -5,7 +5,7 @@ Build on Alpine with [nginx rtmp module](https://github.com/arut/nginx-rtmp-modu
 
 # How to use
 ```
-docker run -p 80:80 -p 1935:1935 -d sifsif/nginx-live-stream
+docker run -p 80:80 -p 1935:1935 -d drizztfire/nginx-live-stream
 ```
 
 The 80 port is for video player, it will autoplay when stream source is ready.
