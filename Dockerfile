@@ -1,7 +1,6 @@
 FROM alpine
 
-ENV VIDEOJS_VERSION 6.8.0
-ENV HLS_VERSION v5.14.1
+ENV VIDEOJS_VERSION 7.5.5
 
 RUN apk update  \
     && apk add --no-cache openssl ca-certificates wget unzip nginx nginx-mod-rtmp ffmpeg \
@@ -10,8 +9,6 @@ RUN apk update  \
     && wget -O videojs.zip https://github.com/videojs/video.js/releases/download/v$VIDEOJS_VERSION/video-js-$VIDEOJS_VERSION.zip \
     && unzip -d /www videojs.zip \
     && rm videojs.zip \
-    && cd /www \
-    && wget https://github.com/videojs/videojs-contrib-hls/releases/download/$HLS_VERSION/videojs-contrib-hls.min.js \
     && chown nginx:nginx /www /var/sock /var/rec
 
 ADD nginx.conf /etc/nginx/nginx.conf
